@@ -4,9 +4,9 @@ services:
   postgres:
       image: postgres:14-alpine
       environment:
-          POSTGRES_PASSWORD: pwakey
-          POSTGRES_USER: pwauser
-          POSTGRES_DB: pwa
+          POSTGRES_PASSWORD: ${DATABASE_PASS}
+          POSTGRES_USER: ${DATABASE_USER}
+          POSTGRES_DB: ${DATABASE_NAME}
       volumes:
           - ./data/pgdata:/var/lib/postgresql/data:delegated
       ports:
@@ -15,10 +15,10 @@ services:
   backend:
     image: yiisoftware/yii2-php:8.1-apache
     environment:
-          PASSWORD: pwakey
-          USER: pwauser
-          DB: pwa
-          HOST: postgres
+          PASSWORD: ${DATABASE_PASS}
+          USER: ${DATABASE_USER}
+          DB: ${DATABASE_NAME}
+          HOST: ${DATABASE_HOST}
     volumes:
       - ./backend/composer/cache:/root/.composer/cache:delegated
       - ./backend/basic:/app:delegated
