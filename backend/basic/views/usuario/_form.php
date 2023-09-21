@@ -18,9 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'authkey')->textInput(['maxlength' => true]) ?>
+<!-- Se oculta label y campo del formulario de authkey y accesstoken (siguen existiendo pero no aparecen) -->
 
-    <?= $form->field($model, 'accesstoken')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'authkey', ['options' => ['style' => 'display:none;'], 'labelOptions' => ['style' => 'display:none;']])->textInput(['maxlength' => true, 'style' => 'display:none;']) ?>
+
+    <?= $form->field($model, 'accesstoken', ['options' => ['style' => 'display:none;'], 'labelOptions' => ['style' => 'display:none;']])->textInput(['maxlength' => true, 'style' => 'display:none;']) ?>    
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
