@@ -10,8 +10,7 @@ services:
       volumes:
           - ./data/pgdata:/var/lib/postgresql/data:delegated
       ports:
-          - '5432:5432'
-
+          - '5432:5432'   
   backend:
     image: yiisoftware/yii2-php:8.1-apache
     environment:
@@ -19,6 +18,7 @@ services:
           USER: ${DATABASE_USER}
           DB: ${DATABASE_NAME}
           HOST: ${DATABASE_HOST}
+          PRODUCCION: 0 #Variable de desarrollo activo/inactivo
     volumes:
       - ./backend/composer/cache:/root/.composer/cache:delegated
       - ./backend/basic:/app:delegated
