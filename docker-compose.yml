@@ -18,7 +18,7 @@ services:
           USER: ${DATABASE_USER}
           DB: ${DATABASE_NAME}
           HOST: ${DATABASE_HOST}
-          PRODUCCION: 0 #Variable de desarrollo activo/inactivo
+          PRODUCCION: ${PRODUCCION}
     volumes:
       - ./backend/composer/cache:/root/.composer/cache:delegated
       - ./backend/basic:/app:delegated
