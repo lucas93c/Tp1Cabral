@@ -19,6 +19,7 @@ services:
           DB: ${DATABASE_NAME}
           HOST: ${DATABASE_HOST}
           PRODUCCION: ${PRODUCCION}
+          PHP_USER_ID: ${PHP_USER_ID}
     volumes:
       - ./backend/composer/cache:/root/.composer/cache:delegated
       - ./backend/basic:/app:delegated
